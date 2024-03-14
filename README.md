@@ -79,3 +79,16 @@ Example input for filtering:
 
 Output:
 No responses are returned, because even though `Timmy` matches the name, the birthday is not greater than the one in our filter.
+
+### Create the initial scaffolding
+
+[TypeScript](https://www.typescriptlang.org) is a solid choice for developing applications. If I'm not creating an application with [Next.js](https://nextjs.org), [Express.js](https://expressjs.com) is my preferred framework for Node.js API development.
+
+For a review of this assignment, it's worth noting that Express is the only dependency installed in the production environment. TypeScript and associated type definitions for TypeScript and Express.js are used for development only.
+
+```sh
+# Install dependencies for Express.js and TypeScript
+npm install express
+npm install --save-dev typescript @types/node @types/express
+
+```
