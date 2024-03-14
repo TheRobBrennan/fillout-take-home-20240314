@@ -94,4 +94,6 @@ npm install --save-dev typescript @types/node @types/express
 # Create a new TypeScript configuration file using a convenient method to generate a default configuration file
 npx tsc --init
 
+# Define rootDir and outDir values in tsconfig.json
+
 ```
