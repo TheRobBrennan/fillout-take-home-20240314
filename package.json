@@ -4,7 +4,8 @@
   "description": "This repo contains my approach and submission to solving a requested take-home coding challenge.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "start": "npm run build && node dist/index.js"
   },
   "repository": {
     "type": "git",

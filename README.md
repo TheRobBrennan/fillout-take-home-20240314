@@ -4,6 +4,18 @@ This repo contains my approach and submission to solving a requested take-home c
 
 ## Getting started
 
+If you want to fire up my project locally, make sure you have Node.js and `npm` installed, and then run:
+
+```sh
+# Install dependencies
+npm install
+
+# Run the Express.js application
+npm start
+```
+
+You should be able to view the default page at [http://localhost:3000](http://localhost:3000) 🤓
+
 ### Review the requirements
 
 - [Express.js](https://expressjs.com) is the preferred framework for their APIs; however any framework can be used
@@ -95,5 +107,4 @@ npm install --save-dev typescript @types/node @types/express
 npx tsc --init
 
 # Define rootDir and outDir values in tsconfig.json
-
 ```
