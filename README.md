@@ -91,4 +91,7 @@ For a review of this assignment, it's worth noting that Express is the only depe
 npm install express
 npm install --save-dev typescript @types/node @types/express
 
+# Create a new TypeScript configuration file using a convenient method to generate a default configuration file
+npx tsc --init
+
 ```
