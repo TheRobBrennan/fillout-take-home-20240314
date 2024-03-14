@@ -108,3 +108,13 @@ npx tsc --init
 
 # Define rootDir and outDir values in tsconfig.json
 ```
+
+### What about testing?
+
+I will use [vitest](https://vitest.dev) and [SuperTest](https://www.npmjs.com/package/supertest) to run tests and generate code coverage reports for this example.
+
+```sh
+# Install Vitest, SuperTest, and the types for SuperTest
+npm install --save-dev vitest supertest @types/superest
+
+```
