@@ -1,0 +1,19 @@
+{
+  "name": "fillout-take-home-20240314",
+  "version": "0.0.0",
+  "description": "This repo contains my approach and submission to solving a requested take-home coding challenge.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheRobBrennan/fillout-take-home-20240314.git"
+  },
+  "author": "Rob Brennan <rob@therobbrennan.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TheRobBrennan/fillout-take-home-20240314/issues"
+  },
+  "homepage": "https://github.com/TheRobBrennan/fillout-take-home-20240314#readme"
+}
