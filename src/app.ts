@@ -1,8 +1,7 @@
 import express, { Request, Response } from 'express';
-// import fetch from 'node-fetch';
-// import fs from 'fs';
-// import path from 'path';
-
+import https from 'https';
+import fs from 'fs';
+import path from 'path';
 
 const app = express();
 
@@ -12,41 +11,40 @@ app.get('/', (req: Request, res: Response) => {
   res.send('Hello, Express with TypeScript!');
 });
 
-app.get('/:formId/filteredResponses', async (req: Request, res: Response) => {
-  try {
-    const apiKey = process.env.FILLOUT_API_KEY;
-    const { formId } = req.params;
-    const { filters } = req.query;
+app.get('/:formId/filteredResponses', (req: Request, res: Response) => {
+  const { formId } = req.params;
+  const url = `https://api.fillout.com/v1/api/forms/${formId}`;
 
-    // TODO: Parse filters from query string
-    // const parsedFilters = JSON.parse(filters as string);
+  https.get(url, {
+    headers: {
+      'Authorization': `Bearer ${process.env.FILLOUT_API_KEY}`,
+      'Content-Type': 'application/json'
+    }
+  }, (apiRes) => {
+    let data = '';
 
-    // const response = await fetch(`https://api.fillout.com/forms/${formId}/responses`, {
-    //   method: 'GET',
-    //   headers: {
-    //     'Authorization': `Bearer ${apiKey}`,
-    //     'Content-Type': 'application/json'
-    //   }
-    // });
+    apiRes.on('data', (chunk) => {
+      data += chunk;
+    });
 
-    // if (!response.ok) throw new Error('Failed to fetch form responses');
+    apiRes.on('end', () => {
+      try {
+        const formResponses = JSON.parse(data);
 
-    // const formResponses = await response.json();
+        // Save the form responses to a file
+        const filePath = path.join(__dirname, '..', 'tmp', 'data.json');
+        fs.writeFileSync(filePath, JSON.stringify(formResponses, null, 2), 'utf-8');
 
-    // TODO: Implement filtering logic
-    // const filteredResponses = formResponses.filter((response: any) => true); // Placeholder logic
-    // res.json(filteredResponses);
-
-    // // Save the form responses to a file
-    // const filePath = path.join(__dirname, '..', 'tmp', 'data.json');
-    // fs.writeFileSync(filePath, JSON.stringify(formResponses, null, 2), 'utf-8');
-
-    // res.json(formResponses);
-    res.json({ formId })
-  } catch (error) {
+        res.json(formResponses);
+      } catch (error) {
+        console.error(error);
+        res.status(500).send('Failed to process the data.');
+      }
+    });
+  }).on('error', (error) => {
     console.error(error);
-    res.status(500).send('An error occurred while processing your request.');
-  }
+    res.status(500).send('An error occurred while fetching form responses.');
+  });
 });
 
 export default app;

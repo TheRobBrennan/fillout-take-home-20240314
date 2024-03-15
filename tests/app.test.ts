@@ -18,7 +18,6 @@ describe('GET /:formId/filteredResponses', () => {
     expect(response.status).toBe(200);
     expect(response.type).toBe('application/json');
     // Add more expectations here to validate the structure of the response
-    expect(response.body.formId).toBe(formId);
   });
 
   // Additional tests can include invalid formId cases, error handling, etc.
