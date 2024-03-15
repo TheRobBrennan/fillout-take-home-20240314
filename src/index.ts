@@ -1,6 +1,8 @@
+import 'dotenv/config';
 import app from './app';
 
-const port = 3000; // FUTURE: Default to port 3000 after attempting to use the PORT environment variable
+// Use the PORT environment variable, default to 3000 if not set
+const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
