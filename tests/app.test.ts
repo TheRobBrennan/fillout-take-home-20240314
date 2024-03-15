@@ -9,3 +9,16 @@ describe('GET /', () => {
     expect(response.text).toBe('Hello, Express with TypeScript!');
   });
 });
+
+describe('GET /:formId/filteredResponses', () => {
+  it('should return JSON data for a valid formId', async () => {
+    const formId = 'cLZojxk94ous';
+    const response = await request(app).get(`/${formId}/filteredResponses`);
+
+    expect(response.status).toBe(200);
+    expect(response.type).toBe('application/json');
+    // Add more expectations here to validate the structure of the response
+  });
+
+  // Additional tests can include invalid formId cases, error handling, etc.
+});
