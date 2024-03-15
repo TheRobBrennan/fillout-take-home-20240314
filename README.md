@@ -12,6 +12,16 @@ npm install
 
 # Run the Express.js application
 npm start
+
+# Run the test suite
+npm test
+
+# OPTIONAL: Generate code coverage for the test suite
+npm run test:coverage
+
+# OPTIONAL: Generate code coverage for the test suite and open the HTML report
+npm run test:coverage:open
+
 ```
 
 You should be able to view the default page at [http://localhost:3000](http://localhost:3000) 🤓
@@ -116,5 +126,18 @@ I will use [vitest](https://vitest.dev) and [SuperTest](https://www.npmjs.com/pa
 ```sh
 # Install Vitest, SuperTest, and the types for SuperTest
 npm install --save-dev vitest supertest @types/superest
+```
+
+If you are eager to run the test suite and/or see the code coverage report:
+
+```sh
+# Run the test suite
+npm test
+
+# OPTIONAL: Generate code coverage for the test suite
+npm run test:coverage
+
+# OPTIONAL: Generate code coverage for the test suite and open the HTML report
+npm run test:coverage:open
 
 ```
