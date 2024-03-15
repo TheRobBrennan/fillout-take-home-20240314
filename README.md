@@ -4,6 +4,28 @@ This repo contains my approach and submission to solving a requested take-home c
 
 ## Getting started
 
+If you want to fire up my project locally, make sure you have Node.js and `npm` installed, and then run:
+
+```sh
+# Install dependencies
+npm install
+
+# Run the Express.js application
+npm start
+
+# Run the test suite
+npm test
+
+# OPTIONAL: Generate code coverage for the test suite
+npm run test:coverage
+
+# OPTIONAL: Generate code coverage for the test suite and open the HTML report
+npm run test:coverage:open
+
+```
+
+You should be able to view the default page at [http://localhost:3000](http://localhost:3000) 🤓
+
 ### Review the requirements
 
 - [Express.js](https://expressjs.com) is the preferred framework for their APIs; however any framework can be used
@@ -79,3 +101,43 @@ Example input for filtering:
 
 Output:
 No responses are returned, because even though `Timmy` matches the name, the birthday is not greater than the one in our filter.
+
+### Create the initial scaffolding
+
+[TypeScript](https://www.typescriptlang.org) is a solid choice for developing applications. If I'm not creating an application with [Next.js](https://nextjs.org), [Express.js](https://expressjs.com) is my preferred framework for Node.js API development.
+
+For a review of this assignment, it's worth noting that Express is the only dependency installed in the production environment. TypeScript and associated type definitions for TypeScript and Express.js are used for development only.
+
+```sh
+# Install dependencies for Express.js and TypeScript
+npm install express
+npm install --save-dev typescript @types/node @types/express
+
+# Create a new TypeScript configuration file using a convenient method to generate a default configuration file
+npx tsc --init
+
+# Define rootDir and outDir values in tsconfig.json
+```
+
+### What about testing?
+
+I will use [vitest](https://vitest.dev) and [SuperTest](https://www.npmjs.com/package/supertest) to run tests and generate code coverage reports for this example.
+
+```sh
+# Install Vitest, SuperTest, and the types for SuperTest
+npm install --save-dev vitest supertest @types/superest
+```
+
+If you are eager to run the test suite and/or see the code coverage report:
+
+```sh
+# Run the test suite
+npm test
+
+# OPTIONAL: Generate code coverage for the test suite
+npm run test:coverage
+
+# OPTIONAL: Generate code coverage for the test suite and open the HTML report
+npm run test:coverage:open
+
+```
