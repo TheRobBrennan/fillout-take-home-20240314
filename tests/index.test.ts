@@ -18,7 +18,7 @@ describe('Server initialization', () => {
     await import('../src/index.ts');
 
     // Verify that app.listen was called correctly
-    expect(app.listen).toHaveBeenCalledWith(3000, expect.any(Function));
+    expect(app.listen).toHaveBeenCalledWith("3000", expect.any(Function));
 
     // Verify that console.log was called with the expected message
     expect(consoleSpy).toHaveBeenCalledWith(`Server running on http://localhost:3000`);
