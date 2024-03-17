@@ -29,7 +29,7 @@ describe('fetchAndSaveFormResponses', () => {
     const requestEmitter = new (require('events').EventEmitter)();
 
     vi.spyOn(https, 'get').mockImplementation((url, options, callback) => {
-      callback!(responseEmitter); // Add type assertion to ensure callback is not undefined
+      callback!(responseEmitter);
       process.nextTick(() => {
         responseEmitter.emit('data', JSON.stringify(dummyData));
         responseEmitter.emit('end');
@@ -50,7 +50,7 @@ describe('fetchAndSaveFormResponses', () => {
     const requestEmitter = new (require('events').EventEmitter)();
 
     vi.spyOn(https, 'get').mockImplementation((url, options, callback) => {
-      callback!(responseEmitter); // Add type assertion to ensure callback is not undefined
+      callback!(responseEmitter);
       process.nextTick(() => {
         responseEmitter.emit('data', 'invalid JSON');
         responseEmitter.emit('end');
