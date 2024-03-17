@@ -4,7 +4,7 @@
   "description": "This repo contains my approach and submission to solving a requested take-home coding challenge.",
   "scripts": {
     "build": "tsc",
-    "start": "tsc && node dist/index.js",
+    "start": "node dist/index.js",
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
     "test:coverage:open": "vitest run --coverage && open coverage/index.html"
