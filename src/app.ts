@@ -5,7 +5,8 @@ const app = express();
 app.use(express.json());
 
 app.get('/', (req: Request, res: Response) => {
-  res.send('Hello, Express with TypeScript!');
+  const formId = process.env.FILLOUT_FORM_ID
+  res.redirect(`/${formId}/filteredResponses`);
 });
 
 app.get('/:formId/filteredResponses', async (req: Request, res: Response) => {
