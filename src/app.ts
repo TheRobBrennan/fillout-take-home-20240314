@@ -12,8 +12,7 @@ app.get('/', (req: Request, res: Response) => {
 app.get('/:formId/filteredResponses', async (req: Request, res: Response) => {
   const { formId } = req.params;
   try {
-    const apiKey = process.env.FILLOUT_API_KEY || '';
-    const responses = await fetchAndSaveFormResponses(formId, apiKey);
+    const responses = await fetchAndSaveFormResponses(formId);
     res.json(responses);
   } catch (error) {
     console.error(error);

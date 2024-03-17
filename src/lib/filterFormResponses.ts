@@ -1,11 +1,11 @@
-// Use Node.js's built-in https and fs modules
 import https from 'https';
 import fs from 'fs';
 import path from 'path';
 
-export const fetchAndSaveFormResponses = (formId: string, apiKey: string): Promise<any> => {
+export const fetchAndSaveFormResponses = (formId: string): Promise<any> => {
   return new Promise((resolve, reject) => {
     const url = `https://api.fillout.com/v1/api/forms/${formId}`;
+    const apiKey = process.env.FILLOUT_API_KEY
 
     https.get(url, {
       headers: {
